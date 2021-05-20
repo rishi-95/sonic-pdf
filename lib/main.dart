@@ -228,7 +228,7 @@ class _MyAppState extends State<MyApp> {
     return Container(
         padding: EdgeInsets.only(top: 50.0),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          _buildButtonColumn(Colors.green, Colors.greenAccent,
+          _buildButtonColumn1(Colors.green, Colors.greenAccent,
               Icons.cloud_upload, 'Upload', _pickPDFText),
         ]));
   }
@@ -263,10 +263,10 @@ class _MyAppState extends State<MyApp> {
     return Padding(
       child: Text(
         _text,
-        style: TextStyle(fontSize: 18),
+        style: TextStyle(fontSize: 17),
         textAlign: TextAlign.center,
       ),
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.all(30),
     );
   }
 
@@ -278,6 +278,28 @@ class _MyAppState extends State<MyApp> {
         children: [
           IconButton(
               iconSize: 50,
+              icon: Icon(icon),
+              color: color,
+              splashColor: splashColor,
+              onPressed: () => func()),
+          Container(
+              margin: const EdgeInsets.only(top: 8.0),
+              child: Text(label,
+                  style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w400,
+                      color: color)))
+        ]);
+  }
+
+  Column _buildButtonColumn1(Color color, Color splashColor, IconData icon,
+      String label, Function func) {
+    return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IconButton(
+              iconSize: 80,
               icon: Icon(icon),
               color: color,
               splashColor: splashColor,
